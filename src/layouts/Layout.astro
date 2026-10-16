@@ -1,0 +1,39 @@
+---
+import Header from '../components/Header.astro';
+import ComingSoonToast from '../components/ComingSoonToast.astro';
+import { site } from '../config';
+import '../styles/global.css';
+interface Props { title?: string; description?: string; hero?: boolean; }
+const { title = 'Paglyph — Stay in the story', description = site.description, hero = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f4f4f4" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/images/figma/brand-mark.svg" />
+    <link rel="preload" href="/fonts/mona-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    {hero && <link rel="preload" href="/images/figma/hero-hand.webp" as="image" type="image/webp" fetchpriority="high" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Paglyph" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/og.jpg', Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Paglyph — Look up words faster, stay in the story." />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header />
+    <slot />
+    {!site.appStoreUrl && <ComingSoonToast />}
+  </body>
+</html>

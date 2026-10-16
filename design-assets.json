@@ -1,0 +1,198 @@
+{
+  "fileKey": "xRStLmjM5UB0oCZ5RTMdb9",
+  "nodeId": "1068:1424",
+  "effectExports": [
+    {
+      "nodeId": "1068:1650",
+      "file": "public/images/figma/capture-background-dithered.png",
+      "width": 344,
+      "height": 475
+    },
+    {
+      "nodeId": "1068:1661",
+      "file": "public/images/figma/tap-background-dithered.png",
+      "width": 344,
+      "height": 475
+    },
+    {
+      "nodeId": "1068:1682",
+      "file": "public/images/figma/understand-background-dithered.png",
+      "width": 344,
+      "height": 475
+    },
+    {
+      "nodeId": "1123:249",
+      "file": "public/images/figma/retain-background-dithered.png",
+      "width": 680,
+      "height": 344
+    }
+  ],
+  "assets": [
+    {
+      "figmaVariable": "img051",
+      "file": "public/images/figma/hero-hand.png"
+    },
+    {
+      "figmaVariable": "imgBg",
+      "file": "public/images/figma/capture-background.png"
+    },
+    {
+      "figmaVariable": "img211",
+      "file": "public/images/figma/capture-phone.png"
+    },
+    {
+      "figmaVariable": "imgBg1",
+      "file": "public/images/figma/tap-background.png"
+    },
+    {
+      "figmaVariable": "img02PlaceYourScreenHere1",
+      "file": "public/images/figma/tap-screen.png"
+    },
+    {
+      "figmaVariable": "imgIphone17White",
+      "file": "public/images/figma/tap-phone.png"
+    },
+    {
+      "figmaVariable": "imgDynamicIsland",
+      "file": "public/images/figma/dynamic-island.png"
+    },
+    {
+      "figmaVariable": "imgBg2",
+      "file": "public/images/figma/understand-background.png"
+    },
+    {
+      "figmaVariable": "imgGroup9",
+      "file": "public/images/figma/brand-mark.svg"
+    },
+    {
+      "figmaVariable": "imgPaglyphEditableTypography",
+      "file": "public/images/figma/nav-wordmark.svg"
+    },
+    {
+      "figmaVariable": "imgAppleLogo",
+      "file": "public/images/figma/apple.svg"
+    },
+    {
+      "figmaVariable": "imgVector",
+      "file": "public/images/figma/hero-pattern.svg"
+    },
+    {
+      "figmaVariable": "imgPaglyphEditableTypography1",
+      "file": "public/images/figma/hero-wordmark.svg"
+    },
+    {
+      "figmaVariable": "imgVuesaxBoldCamera",
+      "file": "public/images/figma/camera.svg"
+    },
+    {
+      "figmaVariable": "imgVuesaxBoldTextBlock",
+      "file": "public/images/figma/text-block.svg"
+    },
+    {
+      "figmaVariable": "img02PlaceYourScreenHere",
+      "file": "public/images/figma/screen-mask.svg"
+    },
+    {
+      "figmaVariable": "imgVuesaxBoldVolumeHigh",
+      "file": "public/images/figma/volume.svg"
+    },
+    {
+      "figmaVariable": "imgVuesaxBoldQuoteUpSquare",
+      "file": "public/images/figma/definition.svg"
+    },
+    {
+      "figmaVariable": "imgLine1",
+      "file": "public/images/figma/quote-line.svg"
+    },
+    {
+      "figmaVariable": "imgGroup10",
+      "file": "public/images/figma/meaning-mark.svg"
+    },
+    {
+      "figmaVariable": "imgAttachSquare",
+      "file": "public/images/figma/attachment.svg"
+    },
+    {
+      "figmaVariable": "imgVuesaxBoldMoreSquare",
+      "file": "public/images/figma/more.svg"
+    },
+    {
+      "figmaVariable": "imgVuesaxLinearArrowDown",
+      "file": "public/images/figma/chevron.svg"
+    },
+    {
+      "figmaVariable": "imgVuesaxBoldArchiveAdd",
+      "file": "public/images/figma/archive.svg"
+    },
+    {
+      "figmaVariable": "imgVuesaxBoldQuoteUpSquare1",
+      "file": "public/images/figma/understand.svg"
+    },
+    {
+      "figmaVariable": "imgLine2",
+      "file": "public/images/figma/footer-line.svg"
+    },
+    {
+      "figmaVariable": "imgVector1",
+      "file": "public/images/figma/footer-wordmark.svg"
+    },
+    {
+      "figmaVariable": "imgHLine",
+      "file": "public/images/figma/faq-rule.svg"
+    },
+    {
+      "figmaVariable": "imgVuesaxLinearAdd",
+      "file": "public/images/figma/faq-add.svg"
+    },
+    {
+      "figmaVariable": "imgGroup11",
+      "file": "public/images/figma/app-icon-mark.svg"
+    },
+    {
+      "figmaVariable": "imgVuesaxBoldNote2",
+      "file": "public/images/figma/retain.svg"
+    },
+    {
+      "figmaVariable": "img02PlaceYourScreenHere2",
+      "file": "public/images/figma/retain-screen-mask.svg"
+    },
+    {
+      "figmaVariable": "img02PlaceYourScreenHere3",
+      "file": "public/images/figma/retain-review-screen.png"
+    },
+    {
+      "figmaVariable": "img02PlaceYourScreenHere5",
+      "file": "public/images/figma/retain-library-screen.png"
+    }
+  ],
+  "lastSynced": "2026-10-17",
+  "sections": {
+    "navigationInitial": "1068:1427",
+    "faq": "1103:3724",
+    "closing": "1103:3519",
+    "appIcons": "1110:3767",
+    "features": "1068:1648"
+  },
+  "appIconAssets": [
+    {
+      "figmaVariable": "imgGroup9",
+      "file": "public/images/figma/app-icon-primary.svg"
+    },
+    {
+      "figmaVariable": "imgGroup10",
+      "file": "public/images/figma/app-icon-grayscale.svg"
+    },
+    {
+      "figmaVariable": "imgGroup11",
+      "file": "public/images/figma/app-icon-mono.svg"
+    },
+    {
+      "figmaVariable": "imgPaper071",
+      "file": "public/images/figma/app-icon-paper-mask.svg"
+    },
+    {
+      "figmaVariable": "imgPaper72",
+      "file": "public/images/figma/app-icon-paper-texture.jpg"
+    }
+  ]
+}

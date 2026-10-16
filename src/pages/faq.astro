@@ -1,0 +1,12 @@
+---
+import Document from '../layouts/Document.astro';
+import FaqList from '../components/FaqList.astro';
+import { site } from '../config';
+---
+<Document title="Frequently asked questions — Paglyph" description="Answers about capturing words, contextual definitions, vocabulary reviews, and subscriptions in Paglyph.">
+  <p class="eyebrow">FAQ</p>
+  <h1>A few words<br />about Paglyph.</h1>
+  <FaqList />
+  <h2>Still have a question?</h2>
+  <p>Get in touch at <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>.</p>
+</Document>

@@ -1,0 +1,86 @@
+---
+import DownloadButton from './DownloadButton.astro';
+const onHome = Astro.url.pathname === '/';
+const links = [
+  { label: 'Features', href: onHome ? '#features' : '/#features' },
+  { label: 'FAQ', href: onHome ? '#faq' : '/#faq' },
+];
+---
+<header class:list={['site-header', { 'site-header--morph': onHome }]}>
+  <nav class="navigation" aria-label="Main navigation" data-scroll-header={onHome || undefined} data-compact={onHome ? 'false' : undefined}>
+    <span class="navigation-surface" aria-hidden="true"></span>
+    <a class="brand" href="/" aria-label="Paglyph home">
+      <span class="brand-symbol"><img src="/images/figma/brand-mark.svg" width="26.6656" height="26.2957" alt="" /></span>
+      <img src="/images/figma/nav-wordmark.svg" width="119.757" height="26.762" alt="Paglyph" />
+    </a>
+    <div class="nav-links nav-links--desktop">
+      {links.map(({ label, href }) => <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>{label}</a>)}
+    </div>
+    <DownloadButton separateSurface />
+    <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false" aria-label="Open menu" hidden>
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+        <path d="M5 8h14" />
+        <path d="M5 16h14" />
+      </svg>
+    </button>
+    <div class="nav-links nav-links--mobile" id="primary-links">
+      {links.map(({ label, href }) => <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>{label}</a>)}
+    </div>
+  </nav>
+</header>
+
+<script>
+  import '../scripts/navigation-scroll';
+</script>
+
+<script is:inline>
+(() => {
+  const root = document.documentElement;
+  const usePointer = () => {
+    if (root.dataset.input !== 'pointer') root.dataset.input = 'pointer';
+  };
+  document.addEventListener('pointerdown', usePointer, { passive: true });
+  document.addEventListener('pointermove', usePointer, { passive: true });
+  document.addEventListener('wheel', usePointer, { passive: true });
+  document.addEventListener('keydown', () => { root.dataset.input = 'keyboard'; }, { capture: true });
+  document.addEventListener('click', (event) => {
+    if (event.detail === 0) root.dataset.input = 'keyboard';
+  }, { capture: true });
+
+  const navigation = document.querySelector('.navigation');
+  const toggle = navigation?.querySelector('.nav-toggle');
+  const mobileLinks = navigation?.querySelector('.nav-links--mobile');
+
+  if (navigation && toggle && mobileLinks) {
+    const setOpen = (open) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      navigation.dataset.open = String(open);
+      mobileLinks.inert = !open;
+      mobileLinks.setAttribute('aria-hidden', String(!open));
+    };
+
+    navigation.dataset.enhanced = 'true';
+    toggle.hidden = false;
+    setOpen(false);
+
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    navigation.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    navigation.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => setOpen(false));
+    });
+    document.addEventListener('click', (event) => {
+      if (event.target instanceof Node && !navigation.contains(event.target)) setOpen(false);
+    });
+    navigation.addEventListener('focusout', (event) => {
+      if (event.relatedTarget instanceof Node && !navigation.contains(event.relatedTarget)) setOpen(false);
+    });
+    window.matchMedia('(min-width: 641px)').addEventListener('change', () => setOpen(false));
+  }
+})();
+</script>

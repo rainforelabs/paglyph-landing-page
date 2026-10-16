@@ -1,0 +1,24 @@
+---
+import { faqItems } from '../data/faq';
+interface Props { landing?: boolean; }
+const { landing = false } = Astro.props;
+---
+<div class:list={['faq-list', { 'faq-list--landing': landing }]}>
+  {landing && <img class="faq-rule" src="/images/figma/faq-rule.svg" width="631" height="1" alt="" loading="lazy" />}
+  {faqItems.map(({ question, answer }) => (
+    <Fragment>
+      <details>
+        <summary>
+          <span>{question}</span>
+          {landing && <img class="faq-toggle" src="/images/figma/faq-add.svg" width="24" height="24" alt="" loading="lazy" />}
+        </summary>
+        <p>{answer}</p>
+      </details>
+      {landing && <img class="faq-rule" src="/images/figma/faq-rule.svg" width="631" height="1" alt="" loading="lazy" />}
+    </Fragment>
+  ))}
+</div>
+
+<script>
+  import '../scripts/faq-disclosure';
+</script>

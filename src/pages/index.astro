@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import WordPreview from '../components/WordPreview.astro';
+import FaqList from '../components/FaqList.astro';
+import AppIconSequence from '../components/AppIconSequence.astro';
+import { site } from '../config';
+
+const headlineLines = ['Look up words faster,', 'stay in the story.'];
+---
+<Layout hero>
+  <main id="main" tabindex="-1">
+    <div class="hero" role="img" aria-label="Paglyph on an iPhone, showing a word’s definition and meaning in context.">
+      <div class="hero-artboard" aria-hidden="true">
+        <div class="hero-layer hero-layer--pattern"><img class="hero-pattern" src="/images/figma/hero-pattern.webp" width="1189" height="1024" alt="" /></div>
+        <div class="hero-layer hero-layer--wordmark"><img class="hero-wordmark" src="/images/figma/hero-wordmark.svg" width="1080" height="241.348" alt="" /></div>
+        <div class="hero-layer hero-layer--phone"><img class="hero-hand" src="/images/figma/hero-hand.webp" width="1221" height="814" alt="" fetchpriority="high" /></div>
+        <div class="hero-fade"></div>
+      </div>
+    </div>
+    <div class="container headline-row">
+      <h1 class="scroll-headline">{headlineLines.map((line, lineIndex) => <><span class="headline-line">{line.split(' ').map((word, wordIndex) => <>{wordIndex > 0 && ' '}<span class="headline-word">{word}</span></>)}</span>{lineIndex === 0 && ' '}</>)}</h1>
+    </div>
+    <section class="container features" id="features" aria-label="How Paglyph works">
+      <article class="feature-card capture-card">
+        <div class="feature-background" aria-hidden="true"><img src="/images/figma/capture-background-dithered.png" width="344" height="475" alt="" loading="lazy" /></div>
+        <div class="feature-image capture-image" role="img" aria-label="Capture a book page with the Paglyph camera.">
+          <div class="feature-parallax"><div class="capture-artboard" aria-hidden="true"><div class="capture-phone"><img src="/images/figma/capture-phone.webp" width="665" height="1514" alt="" loading="lazy" /></div></div></div>
+        </div>
+        <div class="feature-copy">
+          <h2><img src="/images/figma/camera.svg" width="32" height="32" alt="" loading="lazy" />Capture</h2>
+          <p>Take a picture of a page or choose an existing photo from your gallery.</p>
+        </div>
+      </article>
+      <article class="feature-card tap-card">
+        <div class="feature-background" aria-hidden="true"><img src="/images/figma/tap-background-dithered.png" width="344" height="475" alt="" loading="lazy" /></div>
+        <div class="feature-copy">
+          <h2><img src="/images/figma/text-block.svg" width="32" height="32" alt="" loading="lazy" />Tap</h2>
+          <p>Pick a word. The surrounding sentence comes with it.</p>
+        </div>
+        <div class="feature-image tap-image" role="img" aria-label="Tap a highlighted word in a photograph to look it up.">
+          <div class="feature-parallax">
+            <div class="tap-artboard" aria-hidden="true">
+              <img class="tap-screen" src="/images/figma/tap-screen.webp" width="243.848" height="529.781" alt="" loading="lazy" />
+              <img class="tap-phone" src="/images/figma/tap-phone.webp" width="274.148" height="566.791" alt="" loading="lazy" />
+              <img class="dynamic-island" src="/images/figma/dynamic-island.png" width="75.586" height="21.766" alt="" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="feature-card understand-card">
+        <div class="feature-background" aria-hidden="true"><img src="/images/figma/understand-background-dithered.png" width="344" height="475" alt="" loading="lazy" /></div>
+        <div class="feature-image understand-image">
+          <div class="feature-parallax"><div class="understand-artboard"><WordPreview /></div></div>
+          <div class="feature-fade" aria-hidden="true"></div>
+        </div>
+        <div class="feature-copy">
+          <h2><img src="/images/figma/understand.svg" width="32" height="32" alt="" loading="lazy" />Understand</h2>
+          <p>See what the word means in the sentence you’re reading.</p>
+        </div>
+      </article>
+      <article class="feature-card retain-card">
+        <div class="feature-copy">
+          <h2><img src="/images/figma/retain.svg" width="32" height="32" alt="" loading="lazy" />Retain</h2>
+          <p>Save words with their definitions and original sentences and review on a schedule that adapts to how well you remember.</p>
+        </div>
+        <div class="feature-image retain-image" role="img" aria-label="Review a saved word and browse your word library in Paglyph.">
+          <div class="feature-background" aria-hidden="true"><img src="/images/figma/retain-background-dithered.png" width="680" height="344" alt="" loading="lazy" /></div>
+          <div class="feature-parallax">
+            <div class="retain-artboard" aria-hidden="true">
+              <div class="retain-phone retain-phone--review">
+                <img class="retain-screen" src="/images/figma/retain-review-screen.webp" width="206.863" height="449.427" alt="" loading="lazy" />
+                <img class="retain-frame" src="/images/figma/tap-phone.webp" width="232.566" height="480.823" alt="" loading="lazy" />
+                <img class="retain-island" src="/images/figma/dynamic-island.png" width="64.122" height="18.465" alt="" loading="lazy" />
+              </div>
+              <div class="retain-phone retain-phone--library">
+                <img class="retain-screen" src="/images/figma/retain-library-screen.webp" width="206.863" height="449.427" alt="" loading="lazy" />
+                <img class="retain-frame" src="/images/figma/tap-phone.webp" width="232.566" height="480.823" alt="" loading="lazy" />
+                <img class="retain-island" src="/images/figma/dynamic-island.png" width="64.122" height="18.465" alt="" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section class="container landing-faq" id="faq" aria-labelledby="faq-heading">
+      <div class="faq-intro">
+        <div class="faq-heading">
+          <p class="faq-eyebrow">FAQ</p>
+          <h2 id="faq-heading">Frequently<br />asked.</h2>
+        </div>
+        <div class="faq-contact">
+          <p>Have another question?</p>
+          <p>Get in touch at <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a></p>
+        </div>
+      </div>
+      <FaqList landing />
+    </section>
+    <section class="container closing" aria-label="Made for your reading">
+      <AppIconSequence />
+      <h2>For novels, textbooks, and whatever<br class="desktop-break" /> you’re reading next.</h2>
+    </section>
+  </main>
+  <Footer oversized />
+</Layout>
+
+<script>
+  import '../scripts/hero-scroll';
+  import '../scripts/scroll-reveal';
+  import '../scripts/feature-parallax';
+</script>
