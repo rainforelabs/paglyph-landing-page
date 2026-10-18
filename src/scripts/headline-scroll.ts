@@ -1,9 +1,11 @@
+import { entranceMotionAllowed } from './entrance-motion';
+
 type HeadlineResult = 'finished' | 'skipped';
 
 function initHeadlineScroll(): Promise<HeadlineResult> {
   const headline = document.querySelector<HTMLElement>('.scroll-headline');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (!headline || !('animate' in headline) || reducedMotion.matches || location.hash || window.scrollY > 8) return Promise.resolve('skipped');
+  if (!headline || !('animate' in headline) || reducedMotion.matches || !entranceMotionAllowed() || location.hash || window.scrollY > 8) return Promise.resolve('skipped');
 
   const root = document.documentElement;
   const words = [...headline.querySelectorAll<HTMLElement>('.headline-word')];

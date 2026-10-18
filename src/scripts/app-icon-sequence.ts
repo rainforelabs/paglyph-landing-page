@@ -1,3 +1,5 @@
+import { entranceMotionAllowed } from './entrance-motion';
+
 function initAppIconSequence() {
   const button = document.querySelector<HTMLButtonElement>('.icon-sequence');
   if (!button) return;
@@ -55,7 +57,7 @@ function initAppIconSequence() {
   };
 
   const preview = () => {
-    if (played || !visible || !ready || !canAnimate()) return;
+    if (played || !visible || !ready || !canAnimate() || !entranceMotionAllowed()) return;
     played = true;
     timer = setTimeout(play, 660);
   };

@@ -1,8 +1,9 @@
+import { entranceMotionAllowed } from './entrance-motion';
 import { headlineEntrance } from './headline-scroll';
 
 function initScrollReveals() {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (reducedMotion.matches || document.documentElement.dataset.input === 'keyboard' || !('IntersectionObserver' in window)) return;
+  if (reducedMotion.matches || !entranceMotionAllowed() || document.documentElement.dataset.input === 'keyboard' || !('IntersectionObserver' in window)) return;
 
   const targets = [...document.querySelectorAll<HTMLElement>(
     '.feature-card, .faq-intro, .landing-faq > .faq-list, .closing > .closing-mark, .closing > h2',

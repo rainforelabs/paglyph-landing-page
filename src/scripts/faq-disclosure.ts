@@ -5,8 +5,12 @@ const resize = 'cubic-bezier(.645, .045, .355, 1)';
 const fadeIn = 'cubic-bezier(.32, .72, 0, 1)';
 
 // Reduced motion and keyboard input set these tokens to 0ms, which leaves the native toggle in place.
-const duration = (token: '--motion-expand' | '--motion-collapse') =>
-  Number.parseFloat(getComputedStyle(root).getPropertyValue(token)) || 0;
+// The production CSS minifier rewrites 260ms as .26s, so read the unit instead of assuming milliseconds.
+const duration = (token: '--motion-expand' | '--motion-collapse') => {
+  const value = getComputedStyle(root).getPropertyValue(token).trim();
+  const amount = Number.parseFloat(value) || 0;
+  return value.endsWith('ms') ? amount : amount * 1000;
+};
 
 for (const list of document.querySelectorAll<HTMLElement>('.faq-list')) {
   list.dataset.enhanced = 'true';

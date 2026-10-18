@@ -4,7 +4,7 @@ import ComingSoonToast from '../components/ComingSoonToast.astro';
 import { site } from '../config';
 import '../styles/global.css';
 interface Props { title?: string; description?: string; hero?: boolean; }
-const { title = 'Paglyph — Stay in the story', description = site.description, hero = false } = Astro.props;
+const { title = 'Paglyph: Read with Curiosity', description = site.description, hero = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
@@ -16,7 +16,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="/images/figma/brand-mark.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" href="/fonts/mona-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
     {hero && <link rel="preload" href="/images/figma/hero-hand.webp" as="image" type="image/webp" fetchpriority="high" />}
     <meta property="og:type" content="website" />
@@ -24,11 +24,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL('/og.jpg', Astro.site)} />
+    <meta property="og:image" content={new URL('/og.png', Astro.site)} />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Paglyph — Look up words faster, stay in the story." />
+    <meta property="og:image:alt" content="Paglyph: Read with Curiosity" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={new URL('/og.png', Astro.site)} />
+    <meta name="twitter:image:alt" content="Paglyph: Read with Curiosity" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
