@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://paglyph.app/sitemap.xml
+Sitemap: https://www.paglyph.app/sitemap.xml
