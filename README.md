@@ -73,7 +73,7 @@ The navigation and mobile disclosure share the app icons' glass highlight gradie
 - `src/components/FaqList.astro` and `src/data/faq.ts`: shared native FAQ disclosures and answers, including local in-app pricing guidance.
 - `src/components/`: shared header, footer, download link, and word preview.
 - `src/pages/privacy.md`: existing privacy copy, with static Markdown rendering.
-- `public/og.png`: 1200 × 630 social preview, exported from Figma. `docs/social-preview.html` is the older HTML composition it replaced.
+- `public/og-image.jpg`: 1200 × 630 social preview, exported from Figma (JPEG, no alpha, so Meta/Threads render it). `docs/social-preview.html` is the older HTML composition it replaced.
 - `docs/verification.md`: implementation checks and known limits.
 
 ## Accessibility and motion
