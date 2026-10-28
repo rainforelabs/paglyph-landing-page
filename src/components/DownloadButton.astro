@@ -3,7 +3,7 @@ import { site } from '../config';
 interface Props { label?: string; separateSurface?: boolean; }
 const { label = 'Try for Free', separateSurface = false } = Astro.props;
 ---
-<a class="download-button" href={site.downloadUrl} data-coming-soon={!site.appStoreUrl || undefined}>
+<a class="download-button" href={site.appStoreUrl} target="_blank" rel="noopener">
   {separateSurface && <span class="download-surface" aria-hidden="true"></span>}
   <img src="/images/figma/apple.svg" width="24" height="24" alt="" />
   <span>{label}</span>
