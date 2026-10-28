@@ -263,6 +263,8 @@ h1 { font-weight: var(--font-weight-display); font-stretch: 125%; font-size: 48p
 .faq-contact a { border-radius: 3px; overflow-wrap: anywhere; text-underline-offset: .2em; }
 .closing { display: flex; flex-direction: column; align-items: center; gap: 16px; padding-block: 48px; margin-top: 24px; text-align: center; }
 .closing h2 { font-size: 34px; font-weight: var(--font-weight-heavy); font-stretch: 125%; line-height: calc(41 / 34); letter-spacing: normal; }
+.product-hunt-badge { display: block; margin-top: 16px; border-radius: 10px; }
+.product-hunt-badge img { display: block; }
 .site-footer { margin-top: 24px; padding-bottom: max(32px, env(safe-area-inset-bottom)); }
 .footer-rule { overflow: hidden; }
 .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 24px; font-size: 15px; line-height: 20px; color: var(--label-muted); }
