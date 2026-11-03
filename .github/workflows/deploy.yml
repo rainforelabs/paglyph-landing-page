@@ -1,0 +1,44 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One deploy at a time; a newer push to main replaces a queued one.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run check
+        env:
+          ASTRO_TELEMETRY_DISABLED: 1
+
+      - run: npm run build
+        env:
+          ASTRO_TELEMETRY_DISABLED: 1
+
+      # Pull requests stop after the build; only main reaches Cloudflare.
+      - name: Deploy to Cloudflare
+        if: github.event_name != 'pull_request'
+        run: npx wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          WRANGLER_SEND_METRICS: false
