@@ -26,7 +26,18 @@ npm run build
 npm run preview
 ```
 
-Deploy `dist/` to a static host such as Cloudflare Pages, Netlify, or Vercel. Enable gzip/Brotli compression on the host, especially for the original detailed SVG pattern. No deployment has been performed.
+## Deployment
+
+The site is served from Cloudflare Workers as static assets, configured in `wrangler.jsonc`. There is no Worker script: Cloudflare serves `dist/` directly, answers unknown paths with `404.html`, and adds trailing slashes to page URLs. `public/_headers` marks the fingerprinted `/_astro/` files as immutable. Cloudflare compresses responses with Brotli automatically.
+
+The `Deploy` GitHub Actions workflow in `.github/workflows/deploy.yml` type-checks and builds every pull request, and deploys every push to `main`. It needs a `CLOUDFLARE_API_TOKEN` repository secret: a Cloudflare API token created from the "Edit Cloudflare Workers" template, limited to the Paglyph account and the `paglyph.app` zone. To deploy from your machine instead:
+
+```sh
+npx wrangler login
+npm run deploy
+```
+
+`www.paglyph.app` and `paglyph.app` are attached to the Worker as Custom Domains. A Cloudflare Redirect Rule sends `paglyph.app` to `https://www.paglyph.app` with a 301, keeping the path and query string.
 
 In a sandbox where Astro cannot write its telemetry preference, prefix commands with `ASTRO_TELEMETRY_DISABLED=1`.
 
